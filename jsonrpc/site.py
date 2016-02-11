@@ -274,6 +274,10 @@ class JSONRPCSite(object):
                     raise InvalidRequestError(
                         'The method you are trying to access is '
                         'not available by GET requests')
+            elif request.method.lower() == 'options':
+                r = HttpResponse('', status=200)
+                r['Allow'] = 'OPTIONS, POST'
+                return r
             elif not request.method.lower() == 'post':
                 raise RequestPostError
             else:

@@ -93,7 +93,7 @@ class ServerError(Error):
 
 class RequestPostError(InvalidRequestError):
     """ JSON-RPC requests must be POST """
-    message = _('JSON-RPC requests must be POST')
+    message = _('JSON-RPC requests must be OPTIONS or POST')
 
 
 class InvalidCredentialsError(Error):
